@@ -11,8 +11,32 @@ export default function Todo({ id, text, isCompleted, isToday, hour }) {
         isToday={isToday}
         hour={hour}
       />
-      <Text style={styles.text}>{text}</Text>
-      <Text style={styles.time}>{hour}</Text>
+      <View>
+        <Text
+          style={
+            isCompleted
+              ? [
+                  styles.text,
+                  { textDecorationLine: "line-through", color: "#73737330" },
+                ]
+              : styles.text
+          }
+        >
+          {text}
+        </Text>
+        <Text
+          style={
+            isCompleted
+              ? [
+                  styles.time,
+                  { textDecorationLine: "line-through", color: "#73737330" },
+                ]
+              : styles.time
+          }
+        >
+          {hour}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -20,6 +44,8 @@ export default function Todo({ id, text, isCompleted, isToday, hour }) {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 20,
+    flexDirection: "row",
+    alignItems: "center",
   },
   text: {
     fontSize: 15,

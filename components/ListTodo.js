@@ -1,9 +1,9 @@
 import * as React from "react";
-import { todosData } from "../data/todos";
+
 import { FlatList, Text } from "react-native";
 import Todo from "./Todo";
 
-export default function ListTodo() {
+export default function ListTodo({ todosData }) {
   console.log(todosData, "aca perro");
   return (
     <FlatList
