@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ListTodo from "../components/ListTodo";
 import { todosData } from "../data/todos";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const [locaData, setLocalData] = React.useState(
@@ -17,6 +18,7 @@ export default function Home() {
     })
   );
   const [isHidden, setIsHidden] = React.useState(false);
+  const navigation = useNavigation();
 
   const handlePress = () => {
     if (isHidden) {
@@ -56,7 +58,10 @@ export default function Home() {
       <ListTodo todosData={locaData.filter((todo) => todo.isToday)} />
       <Text style={styles.title}>Tomorrow</Text>
       <ListTodo todosData={todosData.filter((todo) => !todo.isToday)} />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Add")}
+      >
         <Text style={styles.plus}>+</Text>
       </TouchableOpacity>
     </View>

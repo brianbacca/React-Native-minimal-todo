@@ -4,7 +4,6 @@ import { FlatList, Text } from "react-native";
 import Todo from "./Todo";
 
 export default function ListTodo({ todosData }) {
-  console.log(todosData, "aca perro");
   return (
     <FlatList
       data={todosData}
